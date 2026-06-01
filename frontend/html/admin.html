@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CodeLink Admin</title>
+  <link rel="stylesheet" href="/css/common.css" />
+  <style>
+    body{font-family:Arial,Helvetica,sans-serif;padding:20px}
+    table{border-collapse:collapse;width:100%}
+    th,td{border:1px solid #ddd;padding:8px}
+    th{background:#f4f4f4}
+    .small{font-size:0.9em;color:#666}
+  </style>
+</head>
+<body>
+  <h1>Admin Panel</h1>
+  <p class="small">Use a valid admin JWT in the browser console to authorize requests. Example: <code>localStorage.setItem('adminToken','Bearer ...')</code></p>
+
+  <section style="margin-top:16px">
+    <h2>Dashboard Summary</h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <div style="padding:12px;border:1px solid #ddd;border-radius:6px;min-width:160px">
+        <div class="small">Total Users</div>
+        <div id="summary-users" style="font-size:20px;font-weight:700">—</div>
+      </div>
+      <div style="padding:12px;border:1px solid #ddd;border-radius:6px;min-width:160px">
+        <div class="small">Total Records</div>
+        <div id="summary-records" style="font-size:20px;font-weight:700">—</div>
+      </div>
+      <div style="padding:12px;border:1px solid #ddd;border-radius:6px;min-width:160px">
+        <div class="small">Active Users (24h)</div>
+        <div id="summary-active" style="font-size:20px;font-weight:700">—</div>
+      </div>
+      <div style="padding:12px;border:1px solid #ddd;border-radius:6px;min-width:240px">
+        <div class="small">Recent Activities</div>
+        <div id="summary-recent" style="max-height:64px;overflow:auto;font-size:12px"></div>
+      </div>
+    </div>
+    <div style="margin-top:8px;display:flex;gap:8px">
+      <button id="btn-show-data" class="btn outline">Show Entered Data</button>
+      <button id="btn-show-logins" class="btn outline">Show Recent Logins</button>
+    </div>
+  </section>
+
+  <section id="admin-views" style="margin-top:18px">
+    <h2>Recent Logins</h2>
+    <table id="logins-table" class="striped" style="width:100%">
+      <thead>
+        <tr><th>Time</th><th>User</th><th>Email</th><th>Details</th></tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Users</h2>
+    <table id="users-table"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Role</th><th>Created</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section style="margin-top:24px">
+    <h2>Activity Logs</h2>
+    <table id="logs-table"><thead><tr><th>Time</th><th>Method</th><th>Path</th><th>IP</th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section style="margin-top:24px">
+    <h2>Entered Data</h2>
+
+    <h3>Snippets</h3>
+    <table id="snippets-table">
+      <thead><tr><th>Title</th><th>Language</th><th>Owner</th><th>Created</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    <h3 style="margin-top:20px">Forum Posts</h3>
+    <table id="forum-table">
+      <thead><tr><th>Title</th><th>Language</th><th>Author</th><th>Created</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    <h3 style="margin-top:20px">Projects</h3>
+    <table id="projects-table">
+      <thead><tr><th>Title</th><th>Skills</th><th>Owner</th><th>Created</th></tr></thead>
+      <tbody></tbody>
+    </table>
+  </section>
+
+  <script src="/js/admin.js"></script>
+</body>
+</html>
