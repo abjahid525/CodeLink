@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeLink - Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/login.css" />
+</head>
+<body class="auth-screen scene-night">
+  <div class="cinematic-media" aria-hidden="true">
+    <video class="cinematic-video" autoplay muted loop playsinline preload="metadata">
+      <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+    </video>
+    <div class="cinematic-image"></div>
+    <div class="cinematic-vignette"></div>
+    <div class="cinematic-noise"></div>
+  </div>
+  <div class="auth-bg"></div>
+
+  <div class="auth-container">
+    <div class="auth-card glass-card">
+      <div class="auth-header">
+        <h1>CodeLink</h1>
+        <p>Developer collaborative workspace</p>
+      </div>
+
+      <form id="login-form" class="form-stack">
+        <h2>Welcome Back</h2>
+        <input id="login-email" type="email" placeholder="Email address" required />
+        <input id="login-password" type="password" placeholder="Password" required />
+        <button type="submit" class="btn accent">Sign In</button>
+
+        <p class="switch">
+          Do not have an account? <a href="register.html">Register</a>
+        </p>
+
+        <button type="button" id="theme-toggle-button" class="btn secondary">
+          Switch Theme
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+  <script type="module" src="../js/auth.js"></script>
+</body>
+</html>
+
+

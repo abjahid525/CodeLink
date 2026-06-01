@@ -1,0 +1,20 @@
+.auth-container {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.auth-card {
+  width: min(450px, 94vw);
+}
+
+.auth-header {
+  margin-bottom: 1rem;
+}
+
+.switch,
+.switch a,
+.auth-card p {
+  font-size: 0.94rem;
+}

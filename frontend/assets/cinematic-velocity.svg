@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#050912"/>
+      <stop offset="48%" stop-color="#0a1424"/>
+      <stop offset="100%" stop-color="#12243f"/>
+    </linearGradient>
+    <linearGradient id="streak" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1a6bff" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#75bcff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#1a6bff" stop-opacity="0"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="70%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#5db4ff" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#5db4ff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#bg)"/>
+  <rect width="1920" height="1080" fill="url(#glow)"/>
+  <g opacity="0.65">
+    <path d="M-120 820 L840 480" stroke="url(#streak)" stroke-width="6"/>
+    <path d="M-60 880 L980 500" stroke="url(#streak)" stroke-width="8"/>
+    <path d="M220 1080 L1540 590" stroke="url(#streak)" stroke-width="7"/>
+    <path d="M560 1080 L1820 620" stroke="url(#streak)" stroke-width="5"/>
+  </g>
+  <g stroke="#79beff" stroke-opacity="0.15">
+    <path d="M0 910 C420 760, 1320 770, 1920 920" stroke-width="2" fill="none"/>
+    <path d="M0 960 C420 820, 1320 820, 1920 960" stroke-width="2" fill="none"/>
+  </g>
+</svg>

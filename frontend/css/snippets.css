@@ -1,0 +1,42 @@
+.snippets-container {
+  display: grid;
+  gap: 1rem;
+}
+
+#snippet-form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.snippet-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.95rem;
+}
+
+.snippet-card {
+  padding: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.snippet-card pre {
+  font-family: 'IBM Plex Mono', 'Consolas', monospace;
+  font-size: 0.83rem;
+  background: color-mix(in srgb, var(--bg-elev) 85%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 0.7rem;
+  overflow: auto;
+}
+
+.snippet-meta {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.snippet-controls {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}

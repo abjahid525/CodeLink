@@ -1,0 +1,44 @@
+.matchmaker-container {
+  display: grid;
+  gap: 1rem;
+}
+
+#project-form,
+.join-form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.matchmaker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0.95rem;
+}
+
+.project-card {
+  padding: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.project-meta,
+.comment-meta {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}
+
+.project-actions {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.status-pill {
+  width: fit-content;
+  border: 1px solid color-mix(in srgb, var(--ok) 56%, var(--line));
+  border-radius: 999px;
+  color: var(--ok);
+  padding: 0.28rem 0.55rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+}

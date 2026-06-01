@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeLink - Matchmaker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/matchmaker.css" />
+</head>
+<body class="workspace-screen scene-velocity">
+  <div class="cinematic-media" aria-hidden="true">
+    <video class="cinematic-video" autoplay muted loop playsinline preload="metadata">
+      <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+    </video>
+    <div class="cinematic-image"></div>
+    <div class="cinematic-vignette"></div>
+    <div class="cinematic-noise"></div>
+  </div>
+  <header class="topbar">
+    <button id="menu-btn">MENU</button>
+    <h2>Project Matchmaker</h2>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside id="sidebar" class="sidebar">
+      <header class="brand">
+        <h1>CodeLink</h1>
+        <p>Workspace</p>
+      </header>
+
+      <nav class="nav-links">
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="playground.html" class="nav-link">Playground</a>
+        <a href="snippets.html" class="nav-link">Snippets</a>
+        <a href="forum.html" class="nav-link">Forum</a>
+        <a href="matchmaker.html" class="nav-link active">Matchmaker</a>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="theme-toggle-button" class="btn secondary">Switch Theme</button>
+        <button id="logout-button" class="btn secondary">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="matchmaker-container">
+        <div class="page-title">
+          <h2>Project Matchmaker</h2>
+          <p>Create collaboration requests, collect join comments, and choose your team.</p>
+        </div>
+
+        <form id="project-form">
+          <input id="project-title" placeholder="Project title" required />
+          <textarea id="project-description" placeholder="Project description" required></textarea>
+          <input id="project-skills" placeholder="Skills needed (comma separated)" />
+          <button type="submit" class="btn accent">Post Project</button>
+        </form>
+
+        <div id="project-list" class="matchmaker-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="../js/matchmaker.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const btn = document.getElementById('menu-btn');
+      const sidebar = document.getElementById('sidebar');
+      if (btn && sidebar) {
+        btn.onclick = () => sidebar.classList.toggle('active');
+      }
+    });
+  </script>
+</body>
+</html>
+
+

@@ -1,0 +1,27 @@
+.dashboard-center {
+  display: grid;
+  gap: 1rem;
+}
+
+.logo-center {
+  font-size: clamp(2.4rem, 8vw, 4.1rem);
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.8rem;
+}
+
+.feature-card {
+  display: block;
+  padding: 1rem;
+  color: var(--text);
+  transition: transform 0.24s ease, border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-2px);
+  background: linear-gradient(150deg, rgba(19, 33, 52, 0.95), rgba(10, 18, 31, 0.85));
+  border-color: rgba(124, 186, 255, 0.58);
+}

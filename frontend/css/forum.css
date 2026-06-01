@@ -1,0 +1,47 @@
+.forum-container {
+  display: grid;
+  gap: 1rem;
+}
+
+#forum-form,
+.comment-form {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.forum-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.95rem;
+}
+
+.forum-card {
+  padding: 1rem;
+  display: grid;
+  gap: 0.8rem;
+}
+
+.feed-post {
+  max-width: 860px;
+}
+
+.forum-card pre,
+.diff-panel {
+  font-family: 'IBM Plex Mono', 'Consolas', monospace;
+  font-size: 0.83rem;
+  background: color-mix(in srgb, var(--bg-elev) 85%, transparent);
+  border: 1px solid var(--line);
+  border-radius: 11px;
+  padding: 0.7rem;
+  overflow: auto;
+}
+
+.comments-list {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.comment-meta {
+  color: var(--text-muted);
+  font-size: 0.84rem;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeLink - Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/dashboard.css" />
+</head>
+<body class="workspace-screen scene-velocity">
+  <div class="cinematic-media" aria-hidden="true">
+    <video class="cinematic-video" autoplay muted loop playsinline preload="metadata">
+      <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+    </video>
+    <div class="cinematic-image"></div>
+    <div class="cinematic-vignette"></div>
+    <div class="cinematic-noise"></div>
+  </div>
+  <header class="topbar">
+    <button id="menu-btn">MENU</button>
+    <h2>Dashboard</h2>
+  </header>
+
+  <div class="dashboard-layout">
+    <aside id="sidebar" class="sidebar">
+      <header class="brand">
+        <h1>CodeLink</h1>
+        <p>Main workspace</p>
+      </header>
+
+      <nav class="nav-links">
+        <a href="dashboard.html" class="nav-link active">Dashboard</a>
+        <a href="playground.html" class="nav-link">Playground</a>
+        <a href="snippets.html" class="nav-link">Snippets</a>
+        <a href="forum.html" class="nav-link">Forum</a>
+        <a href="matchmaker.html" class="nav-link">Matchmaker</a>
+        <a href="cheatsheet.html" class="nav-link">Cheat Sheet</a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button id="theme-toggle-button" class="btn secondary">Switch Theme</button>
+        <button id="logout-button" class="btn secondary">Logout</button>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <section class="dashboard-center">
+        <h1 class="logo-center">CodeLink Workspace</h1>
+        <p class="subtitle">Pick a module and continue shipping.</p>
+
+        <div class="feature-grid">
+          <a href="playground.html" class="feature-card">Live Playground</a>
+          <a href="snippets.html" class="feature-card">Snippets Vault</a>
+          <a href="forum.html" class="feature-card">Bug Fix Forum</a>
+          <a href="matchmaker.html" class="feature-card">Project Matchmaker</a>
+          <a href="cheatsheet.html" class="feature-card">Cheat Sheet</a>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast" class="toast"></div>
+
+  <script type="module" src="../js/dashboard.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const menuBtn = document.getElementById('menu-btn');
+      const sidebar = document.getElementById('sidebar');
+      if (menuBtn && sidebar) {
+        menuBtn.onclick = () => sidebar.classList.toggle('active');
+      }
+    });
+  </script>
+</body>
+</html>
+
+
