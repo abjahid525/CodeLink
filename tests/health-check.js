@@ -34,7 +34,12 @@ const waitForHealth = async () => {
       const response = await fetch(url);
       const body = await response.json();
       if (response.ok && body.status === 'ok') {
-        console.log('CodeLink health check passed.');
+        const protectedResponse = await fetch(`http://127.0.0.1:${port}/api/admin/users`);
+        if (protectedResponse.status !== 401) {
+          throw new Error(`Protected admin endpoint returned ${protectedResponse.status} without a token.`);
+        }
+
+        console.log('CodeLink health and authorization checks passed.');
         stopServer();
         return;
       }
