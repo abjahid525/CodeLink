@@ -60,3 +60,5 @@ npm run dev
 The GitHub Pages site serves the static frontend only. The Express backend must be run separately on a Node.js host for API-backed features.
 
 ## Status
+
+This is a learning project that demonstrates full-stack JavaScript structure, browser UI work, REST-style backend routes, and local persistence.
