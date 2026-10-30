@@ -35,13 +35,15 @@ cd CodeLink
 npm install
 ```
 
-3. Start the server:
+3. Optional: copy `.env.example` to `.env` and set a strong `JWT_SECRET`.
+
+4. Start the server:
 
 ```powershell
 npm start
 ```
 
-4. Open http://localhost:3000 in your browser.
+5. Open http://localhost:3000 in your browser.
 
 For development with automatic restarts:
 
@@ -58,6 +60,10 @@ npm run dev
 ## Deployment note
 
 The GitHub Pages site serves the static frontend only. The Express backend must be run separately on a Node.js host for API-backed features.
+
+### Environment variables
+
+Production requires `JWT_SECRET`. See [`.env.example`](.env.example) for optional Firebase and initial-admin settings. Never commit `.env` or service-account credentials.
 
 ## Status
 

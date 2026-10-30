@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+require('dotenv').config();
 const helmet = require('helmet');
 const cors = require('cors');
 const rateLimit = require('express-rate-limit');
@@ -42,7 +43,10 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 const AUTH_ROUTE = '/api/auth';
-const JWT_SECRET = process.env.JWT_SECRET || 'dev-secret-change-me';
+const JWT_SECRET = process.env.JWT_SECRET || (isDev ? 'local-development-secret' : null);
+if (!JWT_SECRET) {
+  throw new Error('JWT_SECRET must be set when NODE_ENV=production');
+}
 
 // Activity logging (writes to backend/data/activity.json)
 const activityFile = path.join(__dirname, 'data', 'activity.json');
