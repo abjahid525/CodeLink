@@ -53,6 +53,16 @@ For development with automatic restarts:
 npm run dev
 ```
 
+## Verification
+
+Run the backend smoke test after installing dependencies:
+
+```powershell
+npm test
+```
+
+The test starts CodeLink on an isolated local port and verifies that `/api/health` responds successfully.
+
 ## Project structure
 
 - `frontend/` - static pages, styles, and client-side modules
