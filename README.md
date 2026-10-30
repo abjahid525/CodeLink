@@ -98,7 +98,7 @@ The GitHub Pages site serves the static frontend only. The Express backend must 
 
 ### Environment variables
 
-Production requires `JWT_SECRET`. Local JSON files under `backend/data/` are used by default. The server also contains an optional Firebase Realtime Database integration that is not required for the standard setup; see [`.env.example`](.env.example) if you intentionally configure that path. Never commit `.env` or service-account credentials.
+Production requires `JWT_SECRET`. Local JSON files under `backend/data/` are used by default. Set `DATA_DIR` to use a different local storage directory. The server also contains an optional Firebase Realtime Database integration that is not required for the standard setup; see [`.env.example`](.env.example) if you intentionally configure that path. Never commit `.env` or service-account credentials.
 
 ## Status
 

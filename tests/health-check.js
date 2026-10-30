@@ -1,8 +1,12 @@
 const { spawn } = require('node:child_process');
+const fs = require('node:fs');
+const os = require('node:os');
+const path = require('node:path');
 
 const port = 3100 + Math.floor(Math.random() * 500);
+const dataDirectory = fs.mkdtempSync(path.join(os.tmpdir(), 'codelink-test-'));
 const server = spawn(process.execPath, ['backend/server.js'], {
-  env: { ...process.env, NODE_ENV: 'test', PORT: String(port) },
+  env: { ...process.env, DATA_DIR: dataDirectory, NODE_ENV: 'test', PORT: String(port) },
   stdio: ['ignore', 'pipe', 'pipe']
 });
 
@@ -16,11 +20,18 @@ server.stderr.on('data', (chunk) => {
 
 const stopServer = () => {
   if (!server.killed) server.kill();
+  fs.rmSync(dataDirectory, { recursive: true, force: true });
 };
 
 const verifyProductionSecretRequired = () => new Promise((resolve, reject) => {
   const productionServer = spawn(process.execPath, ['backend/server.js'], {
-    env: { ...process.env, NODE_ENV: 'production', JWT_SECRET: '', PORT: String(port + 1) },
+    env: {
+      ...process.env,
+      DATA_DIR: dataDirectory,
+      NODE_ENV: 'production',
+      JWT_SECRET: '',
+      PORT: String(port + 1)
+    },
     stdio: ['ignore', 'pipe', 'pipe']
   });
   let productionOutput = '';

@@ -48,8 +48,10 @@ if (!JWT_SECRET) {
   throw new Error('JWT_SECRET must be set when NODE_ENV=production');
 }
 
-// Activity logging (writes to backend/data/activity.json)
-const activityFile = path.join(__dirname, 'data', 'activity.json');
+// Activity logging (writes to backend/data/activity.json by default)
+const dataDirectory = process.env.DATA_DIR || path.join(__dirname, 'data');
+fs.mkdirSync(dataDirectory, { recursive: true });
+const activityFile = path.join(dataDirectory, 'activity.json');
 function readActivity() {
   try {
     const raw = fs.readFileSync(activityFile, 'utf8');
@@ -139,7 +141,7 @@ if (fs.existsSync(serviceAccountPath) && process.env.FIREBASE_DB_URL) {
 }
 
 // Local storage fallback
-const storageFile = path.join(__dirname, 'data', 'storage.json');
+const storageFile = path.join(dataDirectory, 'storage.json');
 function readStorage() {
   try {
     const raw = fs.readFileSync(storageFile, 'utf8');
