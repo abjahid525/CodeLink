@@ -93,7 +93,7 @@ window.addEventListener('DOMContentLoaded', () => {
   // Check if running from file:// protocol
   if (window.location.protocol === 'file:') {
     console.error('CodeLink must be accessed via HTTP server, not file:// protocol');
-    showToast('Please access CodeLink via http://localhost:4000, not by opening files directly');
+    showToast('Please access CodeLink via http://localhost:3000, not by opening files directly');
     return;
   }
 
