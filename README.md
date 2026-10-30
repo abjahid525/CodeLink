@@ -1,5 +1,7 @@
 # CodeLink - Developer's Collaborative Workspace
 
+[![CodeLink CI](https://github.com/abjahid525/CodeLink/actions/workflows/ci.yml/badge.svg)](https://github.com/abjahid525/CodeLink/actions/workflows/ci.yml)
+
 CodeLink is a full-stack developer workspace for writing small web experiments, saving reusable snippets, discussing bugs, and finding project ideas with other developers.
 
 ## Features
