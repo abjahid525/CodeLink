@@ -84,7 +84,7 @@ Run the backend smoke test after installing dependencies:
 npm test
 ```
 
-The test starts CodeLink on an isolated local port, verifies that `/api/health` responds successfully, and confirms that the protected admin users endpoint rejects requests without a JWT.
+The test starts CodeLink on an isolated local port, verifies that `/api/health` responds successfully, confirms that the protected admin users endpoint rejects requests without a JWT, and checks that production startup fails when `JWT_SECRET` is missing.
 
 ## Project structure
 

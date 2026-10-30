@@ -18,6 +18,34 @@ const stopServer = () => {
   if (!server.killed) server.kill();
 };
 
+const verifyProductionSecretRequired = () => new Promise((resolve, reject) => {
+  const productionServer = spawn(process.execPath, ['backend/server.js'], {
+    env: { ...process.env, NODE_ENV: 'production', JWT_SECRET: '', PORT: String(port + 1) },
+    stdio: ['ignore', 'pipe', 'pipe']
+  });
+  let productionOutput = '';
+  const timeout = setTimeout(() => {
+    productionServer.kill();
+    reject(new Error('CodeLink started in production without JWT_SECRET.'));
+  }, 5000);
+
+  productionServer.stdout.on('data', (chunk) => {
+    productionOutput += chunk.toString();
+  });
+  productionServer.stderr.on('data', (chunk) => {
+    productionOutput += chunk.toString();
+  });
+  productionServer.once('error', reject);
+  productionServer.once('exit', (code) => {
+    clearTimeout(timeout);
+    if (code === 0 || !productionOutput.includes('JWT_SECRET must be set')) {
+      reject(new Error('CodeLink did not reject missing production JWT_SECRET.'));
+      return;
+    }
+    resolve();
+  });
+});
+
 const fail = (error) => {
   stopServer();
   console.error(error.message);
@@ -39,7 +67,8 @@ const waitForHealth = async () => {
           throw new Error(`Protected admin endpoint returned ${protectedResponse.status} without a token.`);
         }
 
-        console.log('CodeLink health and authorization checks passed.');
+        await verifyProductionSecretRequired();
+        console.log('CodeLink health, authorization, and production configuration checks passed.');
         stopServer();
         return;
       }
