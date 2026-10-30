@@ -53,6 +53,29 @@ For development with automatic restarts:
 npm run dev
 ```
 
+## API overview
+
+The Express server exposes:
+
+| Method | Route | Access |
+| --- | --- | --- |
+| `GET` | `/api/health` | Public |
+| `POST` | `/api/auth/register` | Public |
+| `POST` | `/api/auth/login` | Public |
+| `POST` | `/api/auth/logout` | Admin token |
+| `GET` | `/api/admin/users` | Admin token |
+| `GET` | `/api/admin/logs` | Admin token |
+| `GET` | `/api/admin/content` | Admin token |
+| `GET` | `/api/admin/activities` | Admin token |
+| `GET` | `/api/admin/summary` | Admin token |
+| `GET` | `/api/admin/records-per-day` | Admin token |
+
+Protected routes expect the JWT returned by login or registration:
+
+```text
+Authorization: Bearer <token>
+```
+
 ## Verification
 
 Run the backend smoke test after installing dependencies:
